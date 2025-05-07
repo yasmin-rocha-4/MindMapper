@@ -1,0 +1,26 @@
+.trocar-pagina {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 10px;
+    margin-top: auto;  /* Faz com que o componente vá para o final da tela */
+  }
+  
+  
+  
+  .trocar-pagina p {
+    margin: 0;
+    color: white;
+  }
+  
+  .trocar-pagina a {
+    color: #0ACF83; /* Cor verde do botão e força a aplicação */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .trocar-pagina a:hover {
+    text-decoration: underline;
+  }
+  
+  

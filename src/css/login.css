@@ -1,0 +1,98 @@
+.container {
+    background-color: #2C3E50;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 8px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  
+  .cabecalho h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #0ACF83;
+  }
+  
+  .cabecalho h2 {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .form-container {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-floating {
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .form-floating label img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .forgot-password {
+    font-size: 1rem;
+    color: #007bff;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+  
+  .botao-comando {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .botao-comando:hover {
+    background-color: #0056b3;
+  }
+  
+  .erro-login {
+    color: red;
+    margin-top: 10px;
+  }
+  .input-container {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .input-container input {
+    width: 100%;
+    padding: 10px 10px 10px 40px; /* espaço para o ícone */
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+  }
+  
+  .input-container img {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+  }
+  
+  

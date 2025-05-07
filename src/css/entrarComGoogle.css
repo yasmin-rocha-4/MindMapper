@@ -1,0 +1,33 @@
+.google-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.google-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: transparent;
+  color: #fff;
+  border: none; /* sem borda */
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+
+  /* Tira qualquer relevo/sombra que o navegador coloca */
+  box-shadow: none;
+  outline: none;
+}
+
+.google-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
