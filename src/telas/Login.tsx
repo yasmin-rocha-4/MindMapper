@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./utils/Firebase";
+import { auth } from "../utils/Firebase";
 
-import  BotaoAcao  from "./Components/BotaoAcao";
-import  EntrarComGoogle from "./Components/EntrarComGoogle";
-import  TrocarPaginaLogin  from "./Components/TrocarPaginaLogin";
+import  BotaoAcao  from "../Components/BotaoAcao";
+import  EntrarComGoogle from "../Components/EntrarComGoogle";
+import  TrocarPaginaLogin  from "../Components/TrocarPaginaLogin";
 
-import IconeEmail from "./assets/Icones/mail.svg";
-import cadeado from "./assets/Icones/lock.svg";
+import IconeEmail from "../assets/Icones/mail.svg";
+import cadeado from "../assets/Icones/lock.svg";
 
-import "./css/login.css";
+import "../css/login.css";
 
 interface LoginProps {
   titulo: string;
