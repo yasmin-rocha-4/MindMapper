@@ -9,11 +9,15 @@ const BotaoAcao: React.FC<BotaoAcaoProps> = props =>{
 }
 const styles = {
     btnCustom: {
-        background: "#0ACF83", 
+        marginTop: "40px",
+        background: "#007bff", 
+        color: "white",
         border: "none",
         height: "60px",
         width: "200px",
-        borderRadius: "10px"
+        borderRadius: "10px",
+        fontSize: "1rem",
+        fontWeight: "bold"
       }
 };
    
