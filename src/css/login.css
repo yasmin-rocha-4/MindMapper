@@ -58,7 +58,7 @@
     font-size: 0.9rem;
     color: #007bff;
     cursor: pointer;
-    margin-top: 80px;
+    margin-top: 20px;
     
   }
   
@@ -85,7 +85,7 @@
   }
   
   .input-container input {
-    width: 100%;
+    width: auto;
     padding: 10px 10px 10px 40px; /* espaço para o ícone */
     border-radius: 8px;
     border: none;
