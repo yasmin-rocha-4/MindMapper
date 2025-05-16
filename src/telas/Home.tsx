@@ -12,7 +12,18 @@ const Home: React.FC = () => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
-    return () => unsubscribe();
+
+    // Timer para logout automático após 30 minutos
+    const logoutTimer = setTimeout(() => {
+      auth.signOut();
+    
+      window.location.href = "/login";
+    }, 60 * 60 * 1000);
+
+    return () => {
+      unsubscribe();
+      clearTimeout(logoutTimer);
+    };
   }, []);
 
   const toggleSidebar = () => {
