@@ -1,9 +1,26 @@
-import React, { useState } from "react";
-import Sidebar from "../Components/Sidebar"; 
+import React, { useState, useEffect } from "react";
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+import Sidebar from "../Components/Sidebar";
+import UserInfo from "../Components/UserInfo";
+
 import "../css/home.css";
 
 const Home: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("Usuário logado:", currentUser);
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe(); // Limpeza do listener
+  }, []);
+
+  const toggleSidebar = () => setSidebarOpen((prev) => !prev);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -13,7 +30,22 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-container">
-      <Sidebar />
+      {/* Sidebar */}
+      {user && (
+        <Sidebar
+          user={user}
+          toggleSidebar={toggleSidebar}
+          sidebarOpen={sidebarOpen}
+        />
+      )}
+
+      {/* Cabeçalho */}
+      <header className="home-header">
+        <button className="menu-button" onClick={toggleSidebar}>
+          {sidebarOpen ? "✕" : "☰"}
+        </button>
+        {user && <UserInfo user={user} />}
+      </header>
 
       {/* Card principal */}
       <div className="upload-card">
