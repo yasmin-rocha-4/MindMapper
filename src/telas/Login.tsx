@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/Firebase";
-
+import { configurarSessao } from "../utils/authSession";
 import  BotaoAcao  from "../Components/BotaoAcao";
 import  EntrarComGoogle from "../Components/EntrarComGoogle";
 import  TrocarPaginaLogin  from "../Components/TrocarPaginaLogin";
@@ -26,6 +26,8 @@ const Login: React.FC<LoginProps> = ({ titulo, descricao }) => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      await configurarSessao();
+  
       const credencialUsuario = await signInWithEmailAndPassword(auth, email, senha);
       console.log("Usuário logado:", credencialUsuario.user);
       navigate("/home");
@@ -37,7 +39,7 @@ const Login: React.FC<LoginProps> = ({ titulo, descricao }) => {
       }
     }
   };
-
+  
   return (
     <div className="container">
       {/* Cabeçalho */}

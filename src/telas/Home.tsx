@@ -1,12 +1,19 @@
-import React, { useState } from "react";
-import { getAuth } from "firebase/auth";
+import React, { useState, useEffect } from "react";
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 import "../css/home.css";
 
 const Home: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [user, setUser] = useState<User | null>(null);
 
-  const user = getAuth().currentUser;
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const toggleSidebar = () => {
     setSidebarOpen((prev) => !prev);
