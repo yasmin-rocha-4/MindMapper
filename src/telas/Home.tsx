@@ -1,34 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+import React, { useState } from "react";
+import Sidebar from "../Components/Sidebar"; 
 import "../css/home.css";
 
 const Home: React.FC = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const auth = getAuth();
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-
-    // Timer para logout automático após 30 minutos
-    const logoutTimer = setTimeout(() => {
-      auth.signOut();
-    
-      window.location.href = "/login";
-    }, 60 * 60 * 1000);
-
-    return () => {
-      unsubscribe();
-      clearTimeout(logoutTimer);
-    };
-  }, []);
-
-  const toggleSidebar = () => {
-    setSidebarOpen((prev) => !prev);
-  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -38,31 +13,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-container">
-      {/* Sidebar */}
-      <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
-        <nav>
-          <a href="#">Home</a>
-          <a href="#">Calendário</a>
-          <a href="#">Seus Mapas Mentais</a>
-        </nav>
-      </div>
-
-      {/* Cabeçalho */}
-      <div className="home-header">
-        <button className="menu-button" onClick={toggleSidebar}>
-          {sidebarOpen ? "✕" : "☰"}
-        </button>
-        <div className="user-info">
-          <span className="user-name">{user?.displayName || user?.email || "Usuário"}</span>
-          {user?.photoURL ? (
-            <img src={user.photoURL} alt="Foto de perfil" />
-          ) : (
-            <div className="user-placeholder">
-              {user?.email?.charAt(0).toUpperCase()}
-            </div>
-          )}
-        </div>
-      </div>
+      <Sidebar />
 
       {/* Card principal */}
       <div className="upload-card">
