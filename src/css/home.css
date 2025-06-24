@@ -146,6 +146,59 @@
     border-radius: 8px;
     margin-top: 8px;
   }
+  .mindmap-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mindmap-container h3 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.mindmap-box {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  overflow-x: auto;         
+  font-family: "Courier New", Courier, monospace;
+  white-space: normal;     
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mindmap-box svg {
+  max-width: 100%;
+  height: auto !important; /* evita altura fixa no SVG */
+  display: block;
+  margin: 0 auto;
+}
+
+
+.mindmap-container button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.mindmap-container button:hover {
+  background-color: #45a045;
+}
+
   
   /* Responsividade */
   @media (max-width: 480px) {
