@@ -122,6 +122,8 @@ const handleDownloadPNG = async () => {
           <h3>🧠 Mapa Mental Visual</h3>
           <div id="mindmap-result" className="mindmap-box">
             <Mermaid chart={mindMap} />
+            
+
           </div>
 
           <div style={{ marginTop: "1rem", display: "flex", gap: "1rem" }}>

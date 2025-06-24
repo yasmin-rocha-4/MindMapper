@@ -68,11 +68,16 @@ ${text}
   });
 
   const raw = response.choices[0]?.message?.content || "";
-  const sanitized = sanitizeMermaid(raw);
 
-  if (!sanitized) {
-    throw new Error("Erro ao gerar diagrama Mermaid válido.");
-  }
+// Corrige aspas internas nos colchetes do Mermaid
+const cleanedRaw = raw.replace(/\["(.+?)"\]/g, "[$1]");
 
-  return sanitized;
+const sanitized = sanitizeMermaid(cleanedRaw);
+
+if (!sanitized) {
+  throw new Error("Erro ao gerar diagrama Mermaid válido.");
+}
+
+return sanitized;
+
 }
